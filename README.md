@@ -1,11 +1,11 @@
-﻿Git-Notes
+#﻿Git-Notes
 
-一　使用版本控制系統
+#一　使用版本控制系統
 1.版本更動紀錄
 2.版本還原
 3.提供機制改善多人協作衝突
 
-二　版本控制系統演進
+#二　版本控制系統演進
 1.單機式(rcs)
 本機建立資料庫、記錄檔案版本變更
 缺點：多人協作，難以同步版本資料庫
@@ -16,7 +16,7 @@
 獨立作業、伺服器產生異常，提取一份好的資料庫灌回就可復原
 缺點：仍然無法解決同步問題
 
-三　git優點
+#三　git優點
 
 簡單且速度快，非線性開發與完全分散式和處理龐大資料的能力
 
@@ -25,19 +25,19 @@
 2.產生ssh金鑰
 3.調整git組態
 
-四　建立Repository
+#四　建立Repository
 
 1.git對版本資料庫的稱呼為 repository(套件庫）
 2.下達git init，會在該目錄建立repository
 3.repository所需檔案將放置在.git目錄中（請勿誤砍）
 
-五　範例:建立名為playground的空目錄，在那裏建立git repository:
+#五　範例:建立名為playground的空目錄，在那裏建立git repository:
 1.mkdir playground
 2.cd playground
 3.git init
 4.或用git init playground 一次建立空目錄與repository
 
-六　基本觀念-commit
+#六　基本觀念-commit
 1.git將現狀紀錄稱為commit
 2.commit包含作者和時間‵log與前後對應commit等資訊，方便追蹤管理
 
@@ -52,7 +52,7 @@ untracked:無納入版本控制範圍之檔案
 unmodified/modified/:無變動/有變動但尚未staging的檔案
 staged:staging area中的檔案
 
-七　新增指令
+#七　新增指令
 1.git add:把檔案新增或變動加入staging area
 2.git status:檢視檔案狀態
 3.git commit:開啟編輯器，確認變動輸入訊息送出commit，指令後加-m 'commit訊息'會直接commit
@@ -65,7 +65,7 @@ staged:staging area中的檔案
 2.git rm<paths>:將檔案從版本控制中移除並刪除檔案，加-r採遞迴方式 加--cached則不刪除原來檔案
 3.git checkout--<paths>:恢復檔案為未更動狀態(對staging無效)
 
-八　第一個commit
+#八　第一個commit
 1.用touch readme建立一個空的readme
 2.git add readme
 3.git commit -m 'first commit'
@@ -86,11 +86,11 @@ git revert head
 
 
 
-九　當commit超過一個
+#九　當commit超過一個
 1.git以束狀方式記錄commit繼承關係，在每個commit中記下parent
 2.git允許commit分岔與合併，可進行複雜樹狀操作
 
-十　tag和branch
+#十　tag和branch
 1.使用中的branch指向位置會在新commit出現後自動移動，repository預設branch稱為master
 (git會使用head指標紀錄目前的branch，可隨時新增與切換和刪除，分岔的branch可透過merge和rebase)
 
