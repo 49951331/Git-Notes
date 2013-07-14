@@ -98,7 +98,7 @@ git revert head
 
 十一 　範例一：我在哪裡
 
-1.一個擁有三個commit的repository，此時只有一個預設的master(branch)	
+1.一個擁有三個commit的repository，此時只有一個預設的master(branch)     
 2.建立一個新的branch叫testing，指向目前所在的commit(指令:git branch testing)
 3.切換到testing branch:head變為指向testing，再切換到該branch指向的commit(指令:git checkout testing)
 訣竅:git checkout -b testing 可一次做完並開新的branch + 切換
@@ -187,3 +187,27 @@ Stash 可以有很多個，會以堆疊的方式儲存（想成放進桶子裡�
 git stash apply：把最新的 Stash 中的變更取出。
 git stash list：檢視目前的 Stash 堆疊。
 
+二十一 Remote(遠端)
+
+1.將你的repository同步到其他伺服器中
+2.需藉此整合眾人的東西進行多人協作
+3.git允許附加多個遠端，因此可做複雜的同步工作
+
+二十二　多人協作：單一中心式
+
+類似中心式版本控制系統，所有人跟一個共同的遠端 Repository 進行同步。
+但跟中心式相比，遇到衝突可透過 Merge 和 Rebase 來解決，不會有卡住的情形。
+（適合人數跟規模較小的情況。）
+
+二十三　多人協作：整合管理員式
+
+有一個「正統」（Blessed）的 Repository 來存放最終版本
+開發者把自己貢獻整理後，傳到自己公開的 Repository。
+由整合管理員決定是否每個開發者改的東西合併到正統裡。
+這種模式就是 GitHub 或 BitBucket 等系統的 Fork 與 Pull Request 機制：
+開發者可以把正統版 Fork 下來改，改好後送 Pull Request 給整合管理員。
+
+二十四 多人協作：司令官與附手
+
+當專案規模超大時，就需要兩層甚至以上的組織。
+每個開發者的成果由附手彙整後，交由司令官作最後整合。
