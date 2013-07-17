@@ -28,8 +28,11 @@
 github懶人包
 
 Windows：http://help.github.com/win-set-up-git/
+
 MacOS X：http://help.github.com/mac-set-up-git/
+
 Linux：http://help.github.com/linux-set-up-git/
+
 「Add your SSH key to GitHub」這個步驟是 GitHub 的設定，可以跳過
 
 寫給大家的 Git 教學
@@ -115,14 +118,14 @@ Git 的歷史
 2005 年 BitKeeper 跟 Linux 開發團隊鬧翻，不再免費供應系統。Git 的開發自此開始。
 Git 的強項
 
-快
+`快
 簡單
 非線性開發
 （分支、合併、不受單一主線拘束）
 完全分散式
 處理超大資料的能力
 （Linux 核心的程式碼超過一千萬行！）
-這些專案都在用 Git
+這些專案都在用 Git`
 
 Linux Kernel
 Android
