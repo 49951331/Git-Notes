@@ -1,4 +1,4 @@
-#Git-Notes
+##Git-Notes
 
 一　使用版本控制系統
 1.版本更動紀錄
@@ -472,3 +472,87 @@ git push -u origin master
 Pro Git
 Git Ready
 ihower 的 Git 心得文
+
+
+##Git VCS
+
+Git 團隊協同開發指令
+
+上一章介紹了在本地端用git init初始了一個Repository。
+
+不過，比較常常發生的情況是你是從拷貝一個已經存在的 Repository 開始開發。
+
+一 Git 有以下四種方法來存取遠端的Git伺服器：
+
+SSH 安全性最佳
+git clone git@github.com:ihower/sandbox.git
+HTTP/HTTPS 速度最差，但能突破防火牆限制
+git clone https://ihower@github.com/ihower/sandbox.git
+Git protocol 速度最快，但缺認證機制(因此只能做成唯讀)
+git clone git://github.com/ihower/sandbox.git
+File 本機目錄 (有人用 Dropbox 分享 git init –bare –shared 目錄!! Crazy!!)
+git clone file://path/to/repo.git
+以 GitHub Repository 為例
+
+GitHub 是基於 Git 這套分散式版本控制系統的 Repository hosting 應用，
+
+只要是開放原始碼軟體，都可以免費的使用這個服務。
+
+二 這裡就使用Github來進行練習：
+
+在 Github 上建立一個專案
+
+產生 SSH Key
+ssh-keygen -t rsa -C "your_email@youremail.com"
+至 Github 註冊，設定你的 SSH Public Key，並開一個專案
+git remote add origin git@github.com:your_account/sandbox.git
+git push -u origin master
+之後只需要 git push
+出現 ![rejected] 表示需要先做 git pull
+編輯專案的 Settings，加入別人成為你專案的 Collaborators。這樣別人就可以用 SSH 協定來 clone 你的專案。
+
+在 Github 上     Clone 下來
+
+三 以筆者的專案 Sandbox 為例，如果你有寫入權限的話(被加入成Collaborators)，就可以用 SSH 協定 Clone 下來：
+
+git clone git@github.com:ihower/sandbox.git
+如果沒有寫入權限(Collaborators)的話，因為這個專案是公開的，所以你還是可以用Git協定Clone下來：
+
+git clone git://github.com/ihower/sandbox.git
+如果有防火牆問題，改用 HTTPS 協定：
+
+git clone https://github.com/ihower/sandbox.git
+Pull - 從遠端更新
+
+git pull 或 git pull origin master
+實際作用是先 git fetch 遠端的 branch，然後與本地端的 branch 做 merge，產生一個 merge commit 節點
+
+四 所謂的”遠端”預設叫做origin，當你有多個不同遠端伺服器時，就會取不同名子了。
+Push - 將 Commit 送出去
+
+git push 或 git push origin master
+實際的作用是將本地端的 master branch 與遠端的 master branch 作 fast-forward 合併。
+
+如果出現 [rejected] 錯誤的話，表示你必須先作 pull。
+
+預設不會 push tags 資訊：
+
+git push --tags
+列出和取出遠端 branch
+
+git branch -r
+git checkout -t origin/foobar
+git branch -r --merged (列出已經被合併的)	
+刪除遠端 Branch
+
+git push origin :foobar
+git pull 和 git fetch 不會清除已經被刪掉的 branch
+請用 git fetch -p
+git push –tags
+
+預設不會 push tags 資訊
+git push --tags
+
+(本講義內容來自 版本控制系統Git精要http://ihower.tw/git/remote.html)
+
+(本檔案標題為git VCS［Version control system = 版本控制系統］）
